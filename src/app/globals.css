@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-purple: #8b27d6;
+  --light-purple: #c993ed;
+  --dark-purple: #47256d;
 }
 
 @theme inline {
@@ -22,5 +25,210 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Skip to content - hidden by default, visible on focus */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only:focus {
+  position: fixed;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: white;
+  color: black;
+  z-index: 9999;
+  border-radius: 0.375rem;
+}
+
+/* Smooth scrolling & Firefox scrollbar */
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+/* Minimalist Custom Scrollbar - Your Webs Design */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+  width: 8px;
+}
+
+/* Scrollbar for light sections */
+.scrollbar-light::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.scrollbar-light::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Scrollbar animation on page load */
+@keyframes scrollbar-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  animation: scrollbar-fade-in 0.5s ease-out;
+}
+
+/* Hide scrollbar on mobile for cleaner look */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+    width: 3px;
+  }
+}
+
+/* Text gradient utilities */
+.text-gradient {
+  background: linear-gradient(135deg, #8b27d6, #c993ed, #47256d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #8b27d6, #c993ed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects */
+.glow-purple {
+  box-shadow: 0 0 20px rgba(139, 39, 214, 0.3);
+}
+
+.glow-purple:hover {
+  box-shadow: 0 0 30px rgba(139, 39, 214, 0.5);
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Button hover effects */
+.btn-purple {
+  background: linear-gradient(135deg, #8b27d6, #c993ed);
+  transition: all 0.3s ease;
+}
+
+.btn-purple:hover {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(139, 39, 214, 0.3);
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(139, 39, 214, 0.5), 0 0 10px rgba(139, 39, 214, 0.3), 0 0 15px rgba(139, 39, 214, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(139, 39, 214, 0.8), 0 0 20px rgba(139, 39, 214, 0.6), 0 0 30px rgba(139, 39, 214, 0.4);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 10s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+.animation-delay-500 {
+  animation-delay: 0.5s;
+}
+
+.animation-delay-glow {
+  animation-delay: 0.8s;
+}
+
+/* Glitch highlight effect */
+.glitch-effect {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.glitch-effect:hover::before,
+.glitch-effect:hover::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  pointer-events: none;
+}
+
+.glitch-effect:hover::before {
+  color: #ff0040;
+  z-index: -1;
+  transform: translate(-1px, -1px);
+  opacity: 0.7;
+}
+
+.glitch-effect:hover::after {
+  color: #00ffff;
+  z-index: -2;
+  transform: translate(1px, 1px);
+  opacity: 0.7;
 }

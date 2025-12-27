@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://your-webs.com/sitemap.xml
+
+# Disallow admin and private areas if any
+Disallow: /api/
+Disallow: /_next/
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+

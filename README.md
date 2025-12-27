@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Your Webs - Producción Audiovisual y Desarrollo Web
 
-## Getting Started
+Sitio web profesional para Your Webs, especializados en videos de alta calidad para redes sociales y desarrollo web.
 
-First, run the development server:
+## 🚀 Inicio Rápido
+
+### Desarrollo Local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build para Producción
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## ⚙️ Variables de Entorno
 
-To learn more about Next.js, take a look at the following resources:
+Crea un archivo `.env.local` con:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your-verification-code
+NEXT_PUBLIC_SITE_URL=https://your-webs.com
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📦 Tecnologías
 
-## Deploy on Vercel
+- **Next.js 15.5.2** - Framework React
+- **TypeScript** - Tipado estático
+- **Tailwind CSS** - Estilos
+- **Framer Motion** - Animaciones
+- **Google Analytics** - Analytics
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚢 Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+El proyecto está optimizado para deploy en VPS o plataformas como Vercel.
+
+### Build
+
+```bash
+npm run build
+```
+
+### Variables de Entorno en Producción
+
+Asegúrate de configurar las variables de entorno en tu servidor VPS o plataforma de hosting.
