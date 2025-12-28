@@ -122,8 +122,10 @@ const VideoShowcase = () => {
     }
   }, [currentVideo]);
 
-  // Force first frame on iOS for all visible videos
+  // Force first frame on mobile/iOS for all visible videos
   useEffect(() => {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
     const forceFirstFrame = () => {
       videos.forEach((video, index) => {
         const isCurrent = index === currentVideo;
@@ -134,34 +136,46 @@ const VideoShowcase = () => {
         if (isVisible) {
           const videoEl = document.getElementById(`video-${video.id}`) as HTMLVideoElement;
           if (videoEl && playingVideo !== video.id) {
-            // Forzar primer frame en iOS
+            // Forzar primer frame - más agresivo en móvil
             if (videoEl.readyState >= 2) {
-              videoEl.currentTime = 0.01;
+              videoEl.currentTime = 0;
               videoEl.pause();
+              // Forzar actualización visual en móvil
+              if (isMobile) {
+                videoEl.style.opacity = '0.99';
+                setTimeout(() => {
+                  videoEl.style.opacity = '';
+                }, 10);
+              }
             } else {
               // Si aún no está listo, esperar y reintentar
               const checkReady = () => {
                 if (videoEl.readyState >= 2 && playingVideo !== video.id) {
-                  videoEl.currentTime = 0.01;
+                  videoEl.currentTime = 0;
                   videoEl.pause();
                 }
               };
               videoEl.addEventListener('loadedmetadata', checkReady, { once: true });
               videoEl.addEventListener('canplay', checkReady, { once: true });
+              videoEl.addEventListener('canplaythrough', checkReady, { once: true });
             }
           }
         }
       });
     };
 
-    // Ejecutar inmediatamente y después de un pequeño delay para iOS
+    // Ejecutar múltiples veces para móvil (iOS necesita más intentos)
     forceFirstFrame();
-    const timeout = setTimeout(forceFirstFrame, 200);
-    const timeout2 = setTimeout(forceFirstFrame, 500);
+    const timeout1 = setTimeout(forceFirstFrame, 100);
+    const timeout2 = setTimeout(forceFirstFrame, 300);
+    const timeout3 = setTimeout(forceFirstFrame, 600);
+    const timeout4 = isMobile ? setTimeout(forceFirstFrame, 1000) : null;
 
     return () => {
-      clearTimeout(timeout);
+      clearTimeout(timeout1);
       clearTimeout(timeout2);
+      clearTimeout(timeout3);
+      if (timeout4) clearTimeout(timeout4);
     };
   }, [currentVideo, playingVideo, videos]);
 
@@ -267,44 +281,61 @@ const VideoShowcase = () => {
                        muted
                        loop
                        playsInline
-                       preload="metadata"
+                       preload="auto"
                        aria-label={`Video de ${video.title}: ${video.description}`}
                        onLoadedMetadata={(e) => {
                          const videoEl = e.target as HTMLVideoElement;
-                         // Forzar el primer frame en iOS - más agresivo
+                         // Forzar el primer frame en móvil/iOS
                          if (videoEl.readyState >= 2) {
-                           videoEl.currentTime = 0.01;
+                           videoEl.currentTime = 0;
                            videoEl.pause();
-                           // Forzar actualización del frame en iOS
-                           setTimeout(() => {
-                             if (videoEl.readyState >= 2 && !playingVideo) {
-                               videoEl.currentTime = 0.01;
-                               videoEl.pause();
-                             }
-                           }, 100);
+                           // Forzar actualización visual
+                           videoEl.style.display = 'none';
+                           videoEl.offsetHeight; // Trigger reflow
+                           videoEl.style.display = '';
                          }
                        }}
                        onLoadedData={(e) => {
                          const videoEl = e.target as HTMLVideoElement;
-                         // Asegurar que el video esté pausado y muestre el primer frame
+                         // Asegurar primer frame en móvil
                          if (playingVideo !== video.id) {
+                           videoEl.currentTime = 0;
                            videoEl.pause();
-                           videoEl.currentTime = 0.01;
-                           // Forzar actualización visual en iOS
-                           videoEl.load();
-                           setTimeout(() => {
-                             if (videoEl.readyState >= 2 && playingVideo !== video.id) {
-                               videoEl.currentTime = 0.01;
-                               videoEl.pause();
-                             }
-                           }, 50);
+                           // Forzar renderizado
+                           if (videoEl.readyState >= 2) {
+                             videoEl.currentTime = 0;
+                             videoEl.pause();
+                           }
                          }
                        }}
                        onCanPlay={(e) => {
                          const videoEl = e.target as HTMLVideoElement;
                          // Cuando el video puede reproducirse, asegurar primer frame
                          if (playingVideo !== video.id) {
-                           videoEl.currentTime = 0.01;
+                           videoEl.currentTime = 0;
+                           videoEl.pause();
+                           // Forzar actualización en móvil
+                           videoEl.load();
+                           setTimeout(() => {
+                             if (videoEl.readyState >= 2 && playingVideo !== video.id) {
+                               videoEl.currentTime = 0;
+                               videoEl.pause();
+                             }
+                           }, 100);
+                         }
+                       }}
+                       onCanPlayThrough={(e) => {
+                         const videoEl = e.target as HTMLVideoElement;
+                         // Asegurar primer frame cuando el video está completamente cargado
+                         if (playingVideo !== video.id) {
+                           videoEl.currentTime = 0;
+                           videoEl.pause();
+                         }
+                       }}
+                       onSeeked={(e) => {
+                         const videoEl = e.target as HTMLVideoElement;
+                         // Cuando se busca, asegurar que esté pausado si no está reproduciéndose
+                         if (playingVideo !== video.id) {
                            videoEl.pause();
                          }
                        }}
