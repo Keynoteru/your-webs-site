@@ -122,6 +122,49 @@ const VideoShowcase = () => {
     }
   }, [currentVideo]);
 
+  // Force first frame on iOS for all visible videos
+  useEffect(() => {
+    const forceFirstFrame = () => {
+      videos.forEach((video, index) => {
+        const isCurrent = index === currentVideo;
+        const isLeft = index === currentVideo - 1 || (currentVideo === 0 && index === videos.length - 1);
+        const isRight = index === currentVideo + 1 || (currentVideo === videos.length - 1 && index === 0);
+        const isVisible = isCurrent || isLeft || isRight;
+
+        if (isVisible) {
+          const videoEl = document.getElementById(`video-${video.id}`) as HTMLVideoElement;
+          if (videoEl && playingVideo !== video.id) {
+            // Forzar primer frame en iOS
+            if (videoEl.readyState >= 2) {
+              videoEl.currentTime = 0.01;
+              videoEl.pause();
+            } else {
+              // Si aún no está listo, esperar y reintentar
+              const checkReady = () => {
+                if (videoEl.readyState >= 2 && playingVideo !== video.id) {
+                  videoEl.currentTime = 0.01;
+                  videoEl.pause();
+                }
+              };
+              videoEl.addEventListener('loadedmetadata', checkReady, { once: true });
+              videoEl.addEventListener('canplay', checkReady, { once: true });
+            }
+          }
+        }
+      });
+    };
+
+    // Ejecutar inmediatamente y después de un pequeño delay para iOS
+    forceFirstFrame();
+    const timeout = setTimeout(forceFirstFrame, 200);
+    const timeout2 = setTimeout(forceFirstFrame, 500);
+
+    return () => {
+      clearTimeout(timeout);
+      clearTimeout(timeout2);
+    };
+  }, [currentVideo, playingVideo, videos]);
+
 
 
   // Helper function to convert duration from "25s" to ISO 8601 format "PT25S"
@@ -224,21 +267,45 @@ const VideoShowcase = () => {
                        muted
                        loop
                        playsInline
-                       preload={isCurrent ? "metadata" : "metadata"}
+                       preload="metadata"
                        aria-label={`Video de ${video.title}: ${video.description}`}
                        onLoadedMetadata={(e) => {
                          const videoEl = e.target as HTMLVideoElement;
-                         // Asegurar que el primer frame se muestre en iOS
-                         if (!isCurrent && videoEl.readyState >= 2) {
-                           videoEl.currentTime = 0.1;
+                         // Forzar el primer frame en iOS - más agresivo
+                         if (videoEl.readyState >= 2) {
+                           videoEl.currentTime = 0.01;
                            videoEl.pause();
+                           // Forzar actualización del frame en iOS
+                           setTimeout(() => {
+                             if (videoEl.readyState >= 2 && !playingVideo) {
+                               videoEl.currentTime = 0.01;
+                               videoEl.pause();
+                             }
+                           }, 100);
                          }
                        }}
                        onLoadedData={(e) => {
                          const videoEl = e.target as HTMLVideoElement;
-                         if (!isCurrent) {
+                         // Asegurar que el video esté pausado y muestre el primer frame
+                         if (playingVideo !== video.id) {
                            videoEl.pause();
-                           videoEl.currentTime = 0.1;
+                           videoEl.currentTime = 0.01;
+                           // Forzar actualización visual en iOS
+                           videoEl.load();
+                           setTimeout(() => {
+                             if (videoEl.readyState >= 2 && playingVideo !== video.id) {
+                               videoEl.currentTime = 0.01;
+                               videoEl.pause();
+                             }
+                           }, 50);
+                         }
+                       }}
+                       onCanPlay={(e) => {
+                         const videoEl = e.target as HTMLVideoElement;
+                         // Cuando el video puede reproducirse, asegurar primer frame
+                         if (playingVideo !== video.id) {
+                           videoEl.currentTime = 0.01;
+                           videoEl.pause();
                          }
                        }}
                        onPlay={() => setPlayingVideo(video.id)}
