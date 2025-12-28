@@ -25,7 +25,7 @@ const EventsSection = ({ specialty, isReversed }: { specialty: SpecialtyType, is
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.5 }}
       viewport={{ once: true }}
       className={`${specialty.bgColor} ${specialty.textColor} py-24`}
     >
@@ -35,7 +35,7 @@ const EventsSection = ({ specialty, isReversed }: { specialty: SpecialtyType, is
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             viewport={{ once: true }}
             className="text-left"
           >
@@ -54,7 +54,7 @@ const EventsSection = ({ specialty, isReversed }: { specialty: SpecialtyType, is
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             viewport={{ once: true }}
             className="text-left"
           >
@@ -80,7 +80,7 @@ const VideoSection = ({ specialty, isReversed }: { specialty: SpecialtyType, isR
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.5 }}
       viewport={{ once: true }}
       className={`${specialty.bgColor} ${specialty.textColor} py-24`}
     >
@@ -91,7 +91,7 @@ const VideoSection = ({ specialty, isReversed }: { specialty: SpecialtyType, isR
             <motion.div
               initial={{ opacity: 0, x: isReversed ? 30 : -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
               viewport={{ once: true }}
             >
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-extralight tracking-tight mb-6">
@@ -119,7 +119,7 @@ const VideoSection = ({ specialty, isReversed }: { specialty: SpecialtyType, isR
             <motion.div
               initial={{ opacity: 0, x: isReversed ? -30 : 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
               viewport={{ once: true }}
               className="relative flex justify-center"
             >
@@ -163,7 +163,7 @@ const PhotoSection = ({ specialty, isReversed }: { specialty: SpecialtyType, isR
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.5 }}
       viewport={{ once: true }}
       className={`${specialty.bgColor} ${specialty.textColor} py-24`}
     >
@@ -174,7 +174,7 @@ const PhotoSection = ({ specialty, isReversed }: { specialty: SpecialtyType, isR
             <motion.div
               initial={{ opacity: 0, x: isReversed ? 30 : -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
               viewport={{ once: true }}
             >
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-extralight tracking-tight mb-6">
@@ -195,7 +195,7 @@ const PhotoSection = ({ specialty, isReversed }: { specialty: SpecialtyType, isR
             <motion.div
               initial={{ opacity: 0, x: isReversed ? -30 : 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
               viewport={{ once: true }}
               className="relative h-96 overflow-hidden rounded-lg w-full"
             >
@@ -255,7 +255,7 @@ const DroneSection = ({ specialty, isReversed }: { specialty: SpecialtyType, isR
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.5 }}
       viewport={{ once: true }}
       className={`${specialty.bgColor} ${specialty.textColor} py-24`}
     >
@@ -266,7 +266,7 @@ const DroneSection = ({ specialty, isReversed }: { specialty: SpecialtyType, isR
             <motion.div
               initial={{ opacity: 0, x: isReversed ? 30 : -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
               viewport={{ once: true }}
             >
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-extralight tracking-tight mb-6">
@@ -295,7 +295,7 @@ const DroneSection = ({ specialty, isReversed }: { specialty: SpecialtyType, isR
             <motion.div
               initial={{ opacity: 0, x: isReversed ? -30 : 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
               viewport={{ once: true }}
               className="relative flex justify-center"
             >
@@ -454,7 +454,7 @@ const VideoCategories = () => {
             key={specialty.title}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
             className={`${specialty.bgColor} ${specialty.textColor} py-24`}
           >
@@ -465,7 +465,7 @@ const VideoCategories = () => {
                 <motion.div
                   initial={{ opacity: 0, x: specialty.isReversed ? 30 : -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.4 }}
                   viewport={{ once: true }}
                 >
                   <h2 className="text-4xl sm:text-5xl md:text-6xl font-extralight tracking-tight mb-6">
@@ -486,7 +486,7 @@ const VideoCategories = () => {
                 <motion.div
                   initial={{ opacity: 0, x: specialty.isReversed ? -30 : 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
                   viewport={{ once: true }}
                   className="space-y-6"
                 >

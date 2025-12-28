@@ -24,7 +24,7 @@ const MetricsTimeline = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
           className="text-center mb-20"
         >
@@ -116,7 +116,7 @@ const MetricsTimeline = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
             viewport={{ once: true }}
             className="text-center mt-16"
           >

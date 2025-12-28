@@ -16,7 +16,7 @@ const Footer = () => {
     <motion.footer
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.5 }}
       viewport={{ once: true }}
       className="relative bg-black text-white border-t border-white/10"
       id="contacto"
@@ -31,7 +31,7 @@ const Footer = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
               viewport={{ once: true }}
               className="space-y-8"
             >
@@ -58,7 +58,7 @@ const Footer = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
               viewport={{ once: true }}
               className="space-y-6"
             >
@@ -131,7 +131,7 @@ const Footer = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
               viewport={{ once: true }}
               className="space-y-6"
             >
@@ -160,7 +160,7 @@ const Footer = () => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
           viewport={{ once: true }}
           className="border-t border-white/10 py-8"
         >

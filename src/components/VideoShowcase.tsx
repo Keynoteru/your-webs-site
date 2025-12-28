@@ -18,7 +18,7 @@ const VideoShowcase = () => {
       id: 1,
       src: '/auga-web.mp4',
       title: 'Restaurante Auga',
-      description: 'Video gastronómico con 1 Estrella Michelin',
+      description: 'Asturias, Gijón',
       category: 'Gastronomía',
       duration: '25s'
     },
@@ -26,7 +26,7 @@ const VideoShowcase = () => {
       id: 2,
       src: '/yume-web.mp4',
       title: 'Restaurante Yume',
-      description: 'Cocina japonesa contemporánea',
+      description: 'Avilés, Torre Niemeyer',
       category: 'Asiática',
       duration: '15s'
     },
@@ -163,7 +163,7 @@ const VideoShowcase = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
           className="text-center mb-24"
         >
@@ -183,12 +183,12 @@ const VideoShowcase = () => {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
             className="mb-16 relative"
           >
               {/* Video Carousel Container */}
-            <div className="relative h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
+            <div className="relative h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-xl md:rounded-none">
               <motion.div 
                 className="flex h-full transition-transform duration-700 ease-out"
                 animate={{ x: `${-currentVideo * 100}%` }}
@@ -208,7 +208,7 @@ const VideoShowcase = () => {
                     >
                      <video
                        id={`video-${video.id}`}
-                        className={`w-full h-full object-cover transition-all duration-700 ${
+                        className={`w-full h-full object-cover transition-all duration-700 rounded-lg md:rounded-none ${
                           isCurrent 
                             ? 'scale-100' 
                             : isVisible 
@@ -218,13 +218,21 @@ const VideoShowcase = () => {
                        muted
                        loop
                        playsInline
-                       preload={isCurrent ? "metadata" : "none"}
+                       preload={isCurrent ? "metadata" : "metadata"}
                        aria-label={`Video de ${video.title}: ${video.description}`}
+                       onLoadedMetadata={(e) => {
+                         const videoEl = e.target as HTMLVideoElement;
+                         // Asegurar que el primer frame se muestre en iOS
+                         if (!isCurrent && videoEl.readyState >= 2) {
+                           videoEl.currentTime = 0.1;
+                           videoEl.pause();
+                         }
+                       }}
                        onLoadedData={(e) => {
                          const videoEl = e.target as HTMLVideoElement;
                          if (!isCurrent) {
                            videoEl.pause();
-                           videoEl.currentTime = 0;
+                           videoEl.currentTime = 0.1;
                          }
                        }}
                        onPlay={() => setPlayingVideo(video.id)}
@@ -313,7 +321,7 @@ const VideoShowcase = () => {
                            <motion.div 
                              initial={{ opacity: 0, y: 20 }}
                              animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6 }}
+                      transition={{ duration: 0.4 }}
                       className="text-center space-y-4"
                     >
                       <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white tracking-tight">
@@ -322,6 +330,42 @@ const VideoShowcase = () => {
                       <p className="text-gray-400 text-base sm:text-lg md:text-lg font-light max-w-xl mx-auto px-4">
                         {video.description}
                       </p>
+                      {/* Awards/Badges */}
+                      {video.id === 1 && (
+                        <div className="flex items-center justify-center gap-4 mt-4">
+                          <img
+                            src="/fotos/etoile-michelin-155x169.webp"
+                            alt="1 Estrella Michelin"
+                            title="1 Estrella Michelin - Reconocimiento de excelencia gastronómica"
+                            className="h-12 w-auto object-contain cursor-help"
+                            onError={(e) => {
+                              console.error('Error loading image:', e.currentTarget.src);
+                            }}
+                          />
+                          <img
+                            src="/fotos/icon-rp-sol-2.webp"
+                            alt="2 Soles Repsol"
+                            title="2 Soles Repsol - Máximo reconocimiento de la Guía Repsol"
+                            className="h-12 w-auto object-contain cursor-help"
+                            onError={(e) => {
+                              console.error('Error loading image:', e.currentTarget.src);
+                            }}
+                          />
+                        </div>
+                      )}
+                      {video.id === 2 && (
+                        <div className="flex items-center justify-center gap-4 mt-4">
+                          <img
+                            src="/fotos/icon-rp-sol-1.webp"
+                            alt="1 Sol Repsol"
+                            title="1 Sol Repsol - Reconocimiento de la Guía Repsol"
+                            className="h-12 w-auto object-contain cursor-help"
+                            onError={(e) => {
+                              console.error('Error loading image:', e.currentTarget.src);
+                            }}
+                          />
+                        </div>
+                      )}
                     </motion.div>
                   </div>
                              ))}
@@ -350,7 +394,7 @@ const VideoShowcase = () => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
           className="text-center mt-32"
         >

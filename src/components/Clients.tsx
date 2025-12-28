@@ -33,7 +33,7 @@ const Clients = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -67,7 +67,7 @@ const Clients = () => {
                           alt={`Logo de ${client.name}`}
                           width={160}
                           height={80}
-                          className={`object-contain w-full h-full opacity-100 md:${client.name === 'AGUATINTA' ? 'opacity-40' : 'opacity-30'} md:group-hover:opacity-100 transition-all duration-500 filter ${client.name === 'AGUATINTA' ? 'md:group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] md:group-hover:brightness-110' : 'md:group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]'} drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]`}
+                          className={`object-contain w-full h-full opacity-100 md:${client.name === 'AGUATINTA' ? 'opacity-30 brightness-75' : 'opacity-30'} md:group-hover:opacity-100 transition-all duration-500 filter ${client.name === 'AGUATINTA' ? 'md:group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] md:group-hover:brightness-110' : 'md:group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]'} drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]`}
                           loading="lazy"
                           sizes="(max-width: 768px) 75px, 200px"
                           unoptimized
@@ -93,7 +93,7 @@ const Clients = () => {
                           alt={`Logo de ${client.name}`}
                           width={160}
                           height={80}
-                          className={`object-contain w-full h-full opacity-100 md:${client.name === 'AGUATINTA' ? 'opacity-40' : 'opacity-30'} md:group-hover:opacity-100 transition-all duration-500 filter ${client.name === 'AGUATINTA' ? 'md:group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] md:group-hover:brightness-110' : 'md:group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]'} drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]`}
+                          className={`object-contain w-full h-full opacity-100 md:${client.name === 'AGUATINTA' ? 'opacity-30 brightness-75' : 'opacity-30'} md:group-hover:opacity-100 transition-all duration-500 filter ${client.name === 'AGUATINTA' ? 'md:group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] md:group-hover:brightness-110' : 'md:group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]'} drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]`}
                           loading="lazy"
                           sizes="(max-width: 768px) 75px, 200px"
                           unoptimized
@@ -138,7 +138,7 @@ const Clients = () => {
                           alt={`Logo de ${client.name}`}
                           width={160}
                           height={80}
-                          className={`object-contain w-full h-full opacity-100 md:${client.name === 'AGUATINTA' ? 'opacity-40' : 'opacity-30'} md:group-hover:opacity-100 transition-all duration-500 filter ${client.name === 'AGUATINTA' ? 'md:group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] md:group-hover:brightness-110' : 'md:group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]'} drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]`}
+                          className={`object-contain w-full h-full opacity-100 md:${client.name === 'AGUATINTA' ? 'opacity-30 brightness-75' : 'opacity-30'} md:group-hover:opacity-100 transition-all duration-500 filter ${client.name === 'AGUATINTA' ? 'md:group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] md:group-hover:brightness-110' : 'md:group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]'} drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]`}
                           loading="lazy"
                           sizes="(max-width: 768px) 75px, 200px"
                           unoptimized
@@ -182,7 +182,7 @@ const Clients = () => {
                           alt={`Logo de ${client.name}`}
                           width={160}
                           height={80}
-                          className={`object-contain w-full h-full opacity-100 md:${client.name === 'AGUATINTA' ? 'opacity-40' : 'opacity-30'} md:group-hover:opacity-100 transition-all duration-500 filter ${client.name === 'AGUATINTA' ? 'md:group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] md:group-hover:brightness-110' : 'md:group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]'} drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]`}
+                          className={`object-contain w-full h-full opacity-100 md:${client.name === 'AGUATINTA' ? 'opacity-30 brightness-75' : 'opacity-30'} md:group-hover:opacity-100 transition-all duration-500 filter ${client.name === 'AGUATINTA' ? 'md:group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] md:group-hover:brightness-110' : 'md:group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]'} drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]`}
                           loading="lazy"
                           sizes="(max-width: 768px) 75px, 200px"
                           unoptimized
@@ -205,7 +205,7 @@ const Clients = () => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
           className="text-center mt-16"
         >

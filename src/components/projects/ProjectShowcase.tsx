@@ -9,8 +9,12 @@ const ProjectShowcase = () => {
       id: 1,
       title: 'Restaurante Auga',
       category: 'Gastronomía Premium',
-      description: 'Video cinematográfico que captura la esencia de la cocina gallega con 1 Estrella Michelin',
+      description: 'Asturias, Gijón',
       video: '/auga-web.mp4',
+      awards: [
+        { type: 'michelin', stars: 1, image: '/fotos/etoile-michelin-155x169.webp' },
+        { type: 'repsol', soles: 2, image: '/fotos/icon-rp-sol-2.webp' }
+      ],
       results: {
         views: '2.3M',
         engagement: '12.5%',
@@ -23,8 +27,11 @@ const ProjectShowcase = () => {
       id: 2,
       title: 'Restaurante Yume',
       category: 'Cocina Japonesa',
-      description: 'Narrativa visual que transporta a Tokio a través de técnicas culinarias tradicionales',
+      description: 'Avilés, Torre Niemeyer',
       video: '/yume-web.mp4',
+      awards: [
+        { type: 'repsol', soles: 1, image: '/fotos/icon-rp-sol-1.webp' }
+      ],
       results: {
         views: '1.8M',
         engagement: '15.2%',
@@ -84,7 +91,7 @@ const ProjectShowcase = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
           className="text-center mb-20"
         >
@@ -103,18 +110,26 @@ const ProjectShowcase = () => {
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
               viewport={{ once: true }}
               className="group bg-white/5 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-500"
             >
               {/* Video Container */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-64 overflow-hidden rounded-t-3xl md:rounded-t-3xl">
                 <video
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 rounded-t-3xl md:rounded-t-3xl"
                   muted
                   loop
                   playsInline
                   preload="metadata"
+                  onLoadedMetadata={(e) => {
+                    const videoEl = e.target as HTMLVideoElement;
+                    // Mostrar el primer frame en iOS
+                    if (videoEl.readyState >= 2) {
+                      videoEl.currentTime = 0.1;
+                      videoEl.pause();
+                    }
+                  }}
                 >
                   <source src={project.video} type="video/mp4" />
                 </video>
@@ -158,6 +173,44 @@ const ProjectShowcase = () => {
                   {project.description}
                 </p>
 
+                {/* Awards/Badges */}
+                {project.id === 1 && (
+                  <div className="flex items-center gap-4 mb-6">
+                    <img
+                      src="/fotos/etoile-michelin-155x169.webp"
+                      alt="1 Estrella Michelin"
+                      title="1 Estrella Michelin - Reconocimiento de excelencia gastronómica"
+                      className="h-12 w-auto object-contain cursor-help"
+                      onError={(e) => {
+                        console.error('Error loading image:', e.currentTarget.src);
+                      }}
+                    />
+                    <img
+                      src="/fotos/icon-rp-sol-2.webp"
+                      alt="2 Soles Repsol"
+                      title="2 Soles Repsol - Máximo reconocimiento de la Guía Repsol"
+                      className="h-12 w-auto object-contain cursor-help"
+                      onError={(e) => {
+                        console.error('Error loading image:', e.currentTarget.src);
+                      }}
+                    />
+                  </div>
+                )}
+                {project.id === 2 && project.awards && (
+                  <div className="flex items-center gap-4 mb-6">
+                    {project.awards.map((award, idx) => (
+                      <img
+                        key={idx}
+                        src={award.image}
+                        alt={`${award.soles} Sol${award.soles > 1 ? 'es' : ''} Repsol`}
+                        title={`${award.soles} Sol${award.soles > 1 ? 'es' : ''} Repsol - Reconocimiento de la Guía Repsol`}
+                        className="h-12 w-auto object-contain cursor-help"
+                        loading="lazy"
+                      />
+                    ))}
+                  </div>
+                )}
+
                 {/* Results */}
                 <div className="grid grid-cols-3 gap-4 mb-6">
                   {Object.entries(project.results).map(([key, value], i) => (
@@ -192,7 +245,7 @@ const ProjectShowcase = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
           viewport={{ once: true }}
           className="text-center mt-20"
         >
