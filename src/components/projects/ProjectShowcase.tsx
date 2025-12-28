@@ -199,14 +199,16 @@ const ProjectShowcase = () => {
                 {project.id === 2 && project.awards && (
                   <div className="flex items-center gap-4 mb-6">
                     {project.awards.map((award, idx) => (
-                      <img
-                        key={idx}
-                        src={award.image}
-                        alt={`${award.soles} Sol${award.soles > 1 ? 'es' : ''} Repsol`}
-                        title={`${award.soles} Sol${award.soles > 1 ? 'es' : ''} Repsol - Reconocimiento de la Guía Repsol`}
-                        className="h-12 w-auto object-contain cursor-help"
-                        loading="lazy"
-                      />
+                      award.soles && (
+                        <img
+                          key={idx}
+                          src={award.image}
+                          alt={`${award.soles} Sol${award.soles > 1 ? 'es' : ''} Repsol`}
+                          title={`${award.soles} Sol${award.soles > 1 ? 'es' : ''} Repsol - Reconocimiento de la Guía Repsol`}
+                          className="h-12 w-auto object-contain cursor-help"
+                          loading="lazy"
+                        />
+                      )
                     ))}
                   </div>
                 )}
