@@ -124,6 +124,12 @@ const VideoShowcase = () => {
 
 
 
+  // Helper function to convert duration from "25s" to ISO 8601 format "PT25S"
+  const convertDurationToISO8601 = (duration: string): string => {
+    const seconds = parseInt(duration.replace('s', ''));
+    return `PT${seconds}S`;
+  };
+
   // Structured data for videos
   const videoStructuredData = {
     "@context": "https://schema.org",
@@ -134,8 +140,8 @@ const VideoShowcase = () => {
       "name": video.title,
       "description": video.description,
       "thumbnailUrl": `https://your-webs.com${video.src.replace('.mp4', '-thumb.jpg')}`,
-      "uploadDate": "2024-01-01",
-      "duration": video.duration,
+      "uploadDate": "2024-01-01T00:00:00+00:00",
+      "duration": convertDurationToISO8601(video.duration),
       "contentUrl": `https://your-webs.com${video.src}`,
       "embedUrl": `https://your-webs.com${video.src}`,
     }))
