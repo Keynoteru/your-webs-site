@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# security and config files
+SECURITY_REPORT.md
+nginx-config*.txt
+*.config.txt
+server-config*.txt
+deploy-notes.txt
+
+# private notes
+NOTES.md
+TODO.md
+CHANGELOG.md
