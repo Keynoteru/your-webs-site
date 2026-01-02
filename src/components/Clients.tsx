@@ -11,18 +11,18 @@ const Clients = () => {
     setIsMounted(true);
   }, []);
 
-  // Clientes reales con logos
+  // Clientes reales con logos (optimizados en WebP)
   const clients = [
-    { name: 'YUME', logo: '/fotos/yume_logo.png', category: 'Restaurante' },
-    { name: 'AUGA', logo: '/fotos/logo-auga.png', category: 'Restaurante' },
-    { name: 'ALIMIBAR', logo: '/fotos/logo_alimibar.png', category: 'Restaurante' },
-    { name: 'AGUATINTA', logo: '/fotos/aguatinta_logo.png', category: 'Restaurante' },
-    { name: 'MELOCOTÓN', logo: '/fotos/logo_melocoton.png', category: 'Coctelería' },
-    { name: 'BUSHIDO', logo: '/fotos/logo_bushido.png', category: 'Tattoo Studio' },
-    { name: 'SCHWEPPES', logo: '/fotos/Schweppes-Logo.png', category: 'Bebidas' },
-    { name: 'EXTREMAR', logo: '/fotos/logo_extramar.png', category: 'Proveedor' },
-    { name: 'NORTEÑOS', logo: '/fotos/Logo-norteños.svg', category: 'Proveedor' },
-    { name: 'LA HUERTA', logo: '/fotos/Logotipo-La-Huerta-de-Aranjuez-01-removebg-preview.png', category: 'Proveedor' },
+    { name: 'YUME', logo: '/fotos/yume_logo.webp', category: 'Restaurante' },
+    { name: 'AUGA', logo: '/fotos/logo-auga.webp', category: 'Restaurante' },
+    { name: 'ALIMIBAR', logo: '/fotos/logo_alimibar.webp', category: 'Restaurante' },
+    { name: 'AGUATINTA', logo: '/fotos/aguatinta_logo.webp', category: 'Restaurante' },
+    { name: 'MELOCOTÓN', logo: '/fotos/logo_melocoton.webp', category: 'Coctelería' },
+    { name: 'BUSHIDO', logo: '/fotos/logo_bushido.webp', category: 'Tattoo Studio' },
+    { name: 'SCHWEPPES', logo: '/fotos/Schweppes-Logo.webp', category: 'Bebidas' },
+    { name: 'EXTREMAR', logo: '/fotos/logo_extramar.webp', category: 'Proveedor' },
+    { name: 'NORTEÑOS', logo: '/fotos/Logo-norteños.svg', category: 'Proveedor' }, // SVG se mantiene
+    { name: 'LA HUERTA', logo: '/fotos/Logotipo-La-Huerta-de-Aranjuez-01-removebg-preview.webp', category: 'Proveedor' },
   ];
 
   return (

@@ -165,7 +165,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${poppins.variable} antialiased bg-white text-gray-900 overflow-x-hidden`}
+        className={`${inter.variable} ${poppins.variable} antialiased bg-black text-white overflow-x-hidden`}
       >
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         {children}

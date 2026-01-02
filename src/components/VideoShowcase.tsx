@@ -104,6 +104,23 @@ const VideoShowcase = () => {
     setCurrentVideo((prev) => (prev - 1 + videos.length) % videos.length);
   };
 
+  // Forzar carga del primer frame en el video actual (para iOS/Safari)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const currentVideoId = videos[currentVideo].id;
+      const videoElement = document.getElementById(`video-${currentVideoId}`) as HTMLVideoElement;
+      if (videoElement && videoElement.readyState >= 1) {
+        // Forzar mostrar primer frame
+        videoElement.currentTime = 0;
+        if (playingVideo !== currentVideoId) {
+          videoElement.pause();
+        }
+      }
+    }, 100); // Pequeño delay para asegurar que el DOM esté actualizado
+
+    return () => clearTimeout(timer);
+  }, [currentVideo, videos, playingVideo]);
+
   // Auto-advance videos when not playing and not hovered
   useEffect(() => {
     if (playingVideo || isHovered) return;
@@ -228,13 +245,13 @@ const VideoShowcase = () => {
                        muted
                        loop
                        playsInline
-                       preload="metadata"
+                       preload={isVisible ? "metadata" : "none"}
                        aria-label={`Video de ${video.title}: ${video.description}`}
-                       onLoadedMetadata={(e) => {
+                       onLoadedData={(e) => {
                          const videoEl = e.target as HTMLVideoElement;
-                         // Mostrar primer frame
-                         if (playingVideo !== video.id && videoEl.readyState >= 2) {
-                           videoEl.currentTime = 0.1;
+                         // Mostrar primer frame para thumbnail (compatible con iOS)
+                         if (playingVideo !== video.id && !videoEl.paused === false) {
+                           videoEl.currentTime = 0;
                            videoEl.pause();
                          }
                        }}
@@ -336,36 +353,36 @@ const VideoShowcase = () => {
                       {/* Awards/Badges */}
                       {video.id === 1 && (
                         <div className="flex items-center justify-center gap-4 mt-4">
-                          <Image
+                          <img
                             src="/fotos/etoile-michelin-155x169.webp"
                             alt="1 Estrella Michelin"
                             title="1 Estrella Michelin - Reconocimiento de excelencia gastronómica"
-                            width={155}
-                            height={169}
+                            width="155"
+                            height="169"
                             className="h-12 w-auto object-contain cursor-help"
-                            quality={90}
+                            loading="lazy"
                           />
-                          <Image
+                          <img
                             src="/fotos/icon-rp-sol-2.webp"
                             alt="2 Soles Repsol"
                             title="2 Soles Repsol - Máximo reconocimiento de la Guía Repsol"
-                            width={155}
-                            height={169}
+                            width="155"
+                            height="169"
                             className="h-12 w-auto object-contain cursor-help"
-                            quality={90}
+                            loading="lazy"
                           />
                         </div>
                       )}
                       {video.id === 2 && (
                         <div className="flex items-center justify-center gap-4 mt-4">
-                          <Image
+                          <img
                             src="/fotos/icon-rp-sol-1.webp"
                             alt="1 Sol Repsol"
                             title="1 Sol Repsol - Reconocimiento de la Guía Repsol"
-                            width={155}
-                            height={169}
+                            width="155"
+                            height="169"
                             className="h-12 w-auto object-contain cursor-help"
-                            quality={90}
+                            loading="lazy"
                           />
                         </div>
                       )}

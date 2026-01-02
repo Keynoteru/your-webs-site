@@ -19,13 +19,13 @@ const Hero = () => {
       style={{ zIndex: 1 }}
     >
       {/* Video Background */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden bg-black">
         <video
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover opacity-85"
           aria-label="Video de fondo de producción audiovisual"
         >
