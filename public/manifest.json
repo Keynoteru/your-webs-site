@@ -1,0 +1,71 @@
+{
+  "name": "Your Webs - Producción Audiovisual y Desarrollo Web Profesional",
+  "short_name": "Your Webs",
+  "description": "Agencia especializada en producción audiovisual de alta calidad, desarrollo web profesional, aplicaciones con IA y análisis Big Data. Transformamos tu presencia digital con soluciones innovadoras.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "lang": "es",
+  "dir": "ltr",
+  "categories": [
+    "business",
+    "productivity",
+    "photography",
+    "video"
+  ],
+  "icons": [
+    {
+      "src": "/favicon-64x64.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-64x64.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo_yourwebs.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Proyectos",
+      "short_name": "Proyectos",
+      "description": "Ver nuestros proyectos de producción audiovisual",
+      "url": "/proyectos",
+      "icons": [
+        {
+          "src": "/favicon-64x64.png",
+          "sizes": "64x64",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "screenshots": [],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "iarc_rating_id": "",
+  "id": "/",
+  "protocol_handlers": []
+}

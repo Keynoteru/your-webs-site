@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Play, Pause, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 const VideoShowcase = () => {
   const [currentVideo, setCurrentVideo] = useState(0);
@@ -69,7 +70,9 @@ const VideoShowcase = () => {
     setPlayingVideo(videoId);
     const videoElement = document.getElementById(`video-${videoId}`) as HTMLVideoElement;
     if (videoElement) {
-      videoElement.play().catch(console.error); // Handle play promise
+      videoElement.play().catch(() => {
+        // Silently handle autoplay restrictions
+      });
     }
   };
 
@@ -333,36 +336,36 @@ const VideoShowcase = () => {
                       {/* Awards/Badges */}
                       {video.id === 1 && (
                         <div className="flex items-center justify-center gap-4 mt-4">
-                          <img
+                          <Image
                             src="/fotos/etoile-michelin-155x169.webp"
                             alt="1 Estrella Michelin"
                             title="1 Estrella Michelin - Reconocimiento de excelencia gastronómica"
+                            width={155}
+                            height={169}
                             className="h-12 w-auto object-contain cursor-help"
-                            onError={(e) => {
-                              console.error('Error loading image:', e.currentTarget.src);
-                            }}
+                            quality={90}
                           />
-                          <img
+                          <Image
                             src="/fotos/icon-rp-sol-2.webp"
                             alt="2 Soles Repsol"
                             title="2 Soles Repsol - Máximo reconocimiento de la Guía Repsol"
+                            width={155}
+                            height={169}
                             className="h-12 w-auto object-contain cursor-help"
-                            onError={(e) => {
-                              console.error('Error loading image:', e.currentTarget.src);
-                            }}
+                            quality={90}
                           />
                         </div>
                       )}
                       {video.id === 2 && (
                         <div className="flex items-center justify-center gap-4 mt-4">
-                          <img
+                          <Image
                             src="/fotos/icon-rp-sol-1.webp"
                             alt="1 Sol Repsol"
                             title="1 Sol Repsol - Reconocimiento de la Guía Repsol"
+                            width={155}
+                            height={169}
                             className="h-12 w-auto object-contain cursor-help"
-                            onError={(e) => {
-                              console.error('Error loading image:', e.currentTarget.src);
-                            }}
+                            quality={90}
                           />
                         </div>
                       )}

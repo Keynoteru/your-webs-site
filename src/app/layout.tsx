@@ -107,8 +107,7 @@ export default function RootLayout({
           <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
         )}
         
-        {/* Preload critical resources */}
-        <link rel="preload" href="/logo_your_webs.svg" as="image" type="image/svg+xml" />
+        {/* Preload critical resources - Logo is already prioritized in Header component */}
         
         {/* Structured Data - Organization */}
         <script

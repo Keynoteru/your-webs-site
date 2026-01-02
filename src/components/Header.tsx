@@ -90,9 +90,11 @@ const Header = () => {
                 <Image
                   src="/logo_your_webs.svg"
                   alt="Your Webs Logo"
-                  fill
-                  className="object-contain"
+                  width={48}
+                  height={48}
+                  className="object-contain w-full h-full"
                   priority
+                  sizes="48px"
                 />
               </div>
               <div>

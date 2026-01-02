@@ -1,0 +1,18 @@
+# Navegadores modernos solamente (reduce polyfills)
+# Basado en: https://caniuse.com/usage-table
+# Cobertura: ~95% de usuarios globales
+
+# Navegadores modernos (últimas 2 versiones)
+last 2 Chrome versions
+last 2 Firefox versions
+last 2 Safari versions
+last 2 Edge versions
+
+# No incluir IE ni navegadores muy antiguos
+not dead
+not IE 11
+
+# Móviles modernos
+last 2 iOS versions
+last 2 ChromeAndroid versions
+

@@ -181,8 +181,8 @@ const ProjectShowcase = () => {
                       alt="1 Estrella Michelin"
                       title="1 Estrella Michelin - Reconocimiento de excelencia gastronómica"
                       className="h-12 w-auto object-contain cursor-help"
-                      onError={(e) => {
-                        console.error('Error loading image:', e.currentTarget.src);
+                      onError={() => {
+                        // Silently handle image loading errors
                       }}
                     />
                     <img
@@ -190,8 +190,8 @@ const ProjectShowcase = () => {
                       alt="2 Soles Repsol"
                       title="2 Soles Repsol - Máximo reconocimiento de la Guía Repsol"
                       className="h-12 w-auto object-contain cursor-help"
-                      onError={(e) => {
-                        console.error('Error loading image:', e.currentTarget.src);
+                      onError={() => {
+                        // Silently handle image loading errors
                       }}
                     />
                   </div>

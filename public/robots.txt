@@ -1,13 +1,45 @@
+# robots.txt para your-webs.com
+# Optimizado para SEO y crawling eficiente
+
+# Reglas para todos los bots
 User-agent: *
 Allow: /
+Allow: /proyectos
+Allow: /manifest.json
+Allow: /sitemap.xml
+
+# Bloquear archivos y directorios internos
+Disallow: /_next/
+Disallow: /api/
+Disallow: /.next/
+Disallow: /node_modules/
+
+# Reglas específicas para Googlebot
+User-agent: Googlebot
+Allow: /
+Allow: /proyectos
+Disallow: /_next/
+Disallow: /api/
+
+# Reglas específicas para Bingbot
+User-agent: Bingbot
+Allow: /
+Allow: /proyectos
+Disallow: /_next/
+Disallow: /api/
+
+# Bloquear bots maliciosos y scrapers agresivos
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
 
 # Sitemap
 Sitemap: https://your-webs.com/sitemap.xml
-
-# Disallow admin and private areas if any
-Disallow: /api/
-Disallow: /_next/
-
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
-

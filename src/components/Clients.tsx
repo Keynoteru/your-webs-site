@@ -40,7 +40,7 @@ const Clients = () => {
           <h2 id="clientes-heading" className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-extralight text-white mb-4 tracking-tight">
             Confían en
             <br />
-            <span className="text-white/60">
+            <span className="text-white">
               Nuestro Trabajo
             </span>
           </h2>
@@ -70,7 +70,7 @@ const Clients = () => {
                           className={`object-contain w-full h-full opacity-100 md:${client.name === 'AGUATINTA' ? 'opacity-30 brightness-75' : 'opacity-30'} md:group-hover:opacity-100 transition-all duration-500 filter ${client.name === 'AGUATINTA' ? 'md:group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] md:group-hover:brightness-110' : 'md:group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]'} drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]`}
                           loading="lazy"
                           sizes="(max-width: 768px) 75px, 200px"
-                          unoptimized
+                          quality={85}
                         />
                       </div>
                     </div>
@@ -96,7 +96,7 @@ const Clients = () => {
                           className={`object-contain w-full h-full opacity-100 md:${client.name === 'AGUATINTA' ? 'opacity-30 brightness-75' : 'opacity-30'} md:group-hover:opacity-100 transition-all duration-500 filter ${client.name === 'AGUATINTA' ? 'md:group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] md:group-hover:brightness-110' : 'md:group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]'} drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]`}
                           loading="lazy"
                           sizes="(max-width: 768px) 75px, 200px"
-                          unoptimized
+                          quality={85}
                         />
                       </div>
                     </div>
@@ -141,7 +141,7 @@ const Clients = () => {
                           className={`object-contain w-full h-full opacity-100 md:${client.name === 'AGUATINTA' ? 'opacity-30 brightness-75' : 'opacity-30'} md:group-hover:opacity-100 transition-all duration-500 filter ${client.name === 'AGUATINTA' ? 'md:group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] md:group-hover:brightness-110' : 'md:group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]'} drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]`}
                           loading="lazy"
                           sizes="(max-width: 768px) 75px, 200px"
-                          unoptimized
+                          quality={85}
                         />
                       </div>
                     </div>
@@ -185,7 +185,7 @@ const Clients = () => {
                           className={`object-contain w-full h-full opacity-100 md:${client.name === 'AGUATINTA' ? 'opacity-30 brightness-75' : 'opacity-30'} md:group-hover:opacity-100 transition-all duration-500 filter ${client.name === 'AGUATINTA' ? 'md:group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] md:group-hover:brightness-110' : 'md:group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]'} drop-shadow-[0_0_4px_rgba(255,255,255,0.2)]`}
                           loading="lazy"
                           sizes="(max-width: 768px) 75px, 200px"
-                          unoptimized
+                          quality={85}
                         />
                       </div>
                     </div>

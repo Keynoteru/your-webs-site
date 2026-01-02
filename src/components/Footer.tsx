@@ -42,6 +42,7 @@ const Footer = () => {
                     alt="Your Webs Logo"
                     fill
                     className="object-contain"
+                    sizes="40px"
                   />
                 </div>
                 <h3 className="text-xl font-light text-white tracking-wide">

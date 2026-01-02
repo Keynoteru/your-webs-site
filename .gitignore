@@ -42,12 +42,24 @@ next-env.d.ts
 
 # security and config files
 SECURITY_REPORT.md
+ANALISIS_PENTESTER.md
+EXPLICACION_ATAQUE*.md
+GUIA_SEGURIDAD*.md
+RESPUESTA_PENTESTER.txt
 nginx-config*.txt
 *.config.txt
 server-config*.txt
 deploy-notes.txt
+*.sh
 
 # private notes
 NOTES.md
 TODO.md
 CHANGELOG.md
+
+# default Next.js files (no usados)
+public/next.svg
+public/vercel.svg
+public/file.svg
+public/window.svg
+public/globe.svg
