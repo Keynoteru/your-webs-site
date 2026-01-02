@@ -46,6 +46,7 @@ ANALISIS_PENTESTER.md
 EXPLICACION_ATAQUE*.md
 GUIA_SEGURIDAD*.md
 RESPUESTA_PENTESTER.txt
+FIXES_SERVIDOR.md
 nginx-config*.txt
 *.config.txt
 server-config*.txt

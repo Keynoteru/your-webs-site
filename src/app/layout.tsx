@@ -98,9 +98,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://wa.me" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://stats.g.doubleclick.net" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.instagram.com" />
         <link rel="dns-prefetch" href="https://wa.me" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://stats.g.doubleclick.net" />
         
         {/* Google Search Console Verification - Reemplaza con tu código de verificación */}
         {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && (
