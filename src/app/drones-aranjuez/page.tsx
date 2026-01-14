@@ -135,15 +135,66 @@ export default function DronesAranjuezPage() {
           </div>
         </section>
 
+        {/* Services Hub Section */}
+        <section className="py-20 bg-white/5">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-extralight text-white mb-4">
+                Nuestros Servicios de Drones en Aranjuez
+              </h2>
+              <p className="text-xl text-gray-400 font-light max-w-3xl mx-auto">
+                Servicios especializados con drones profesionales para empresas de Aranjuez
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
+              {mainServices.map((service, index) => (
+                <Link
+                  key={index}
+                  href={service.link}
+                  className="group bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all"
+                >
+                  <service.icon className="w-12 h-12 text-orange-400 mb-4 group-hover:scale-110 transition-transform" />
+                  <h3 className="text-xl font-normal text-white mb-3 group-hover:text-orange-400 transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-400 font-light mb-4 text-sm">
+                    {service.description}
+                  </p>
+                  <div className="flex items-center text-orange-400 font-medium text-sm">
+                    Ver más
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              ))}
+              <Link
+                href="/renderizado-3d-drones-aranjuez"
+                className="group bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all"
+              >
+                <Drone className="w-12 h-12 text-orange-400 mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-xl font-normal text-white mb-3 group-hover:text-orange-400 transition-colors">
+                  Renderizado 3D con Drones
+                </h3>
+                <p className="text-gray-400 font-light mb-4 text-sm">
+                  Modelado 3D y visualización aérea para proyectos en Aranjuez
+                </p>
+                <div className="flex items-center text-orange-400 font-medium text-sm">
+                  Ver más
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Main Services */}
         <section className="py-20" id="grabacion">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-extralight text-white mb-4">
-                Servicios de Drones en Aranjuez
+                Aplicaciones de Drones en Aranjuez
               </h2>
               <p className="text-xl text-gray-400 font-light max-w-3xl mx-auto">
-                Soluciones profesionales con drones para empresas y particulares en Aranjuez
+                Casos de uso y aplicaciones profesionales con drones para empresas de Aranjuez
               </p>
             </div>
 

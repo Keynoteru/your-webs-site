@@ -17,6 +17,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+    // Hub principal Aranjuez
+    {
+      url: `${baseUrl}/aranjuez`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 1.0,
+    },
     // Páginas de marketing local Aranjuez
     {
       url: `${baseUrl}/gestion-redes-sociales-aranjuez`,
@@ -60,25 +67,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/inspecciones-drones-aranjuez`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/termografia-drones-aranjuez`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/topografia-drones-aranjuez`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/renderizado-3d-drones-aranjuez`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.85,
     },
     // Páginas de tecnología Aranjuez
     {
